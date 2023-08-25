@@ -10,7 +10,7 @@ services:
       - "8088:8088"
     volumes:
       - splunk_data:/opt/splunk/var
-    networks:
+      - ./apps:/opt/splunk/etc/apps # for dataset
       - splunk_network
 
 networks:
