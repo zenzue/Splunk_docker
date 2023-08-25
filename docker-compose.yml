@@ -1,0 +1,21 @@
+version: '3'
+services:
+  splunk:
+    image: splunk/splunk:latest
+    environment:
+      SPLUNK_START_ARGS: "--accept-license"
+      SPLUNK_PASSWORD: "PentestSage"
+    ports:
+      - "8000:8000"
+      - "8088:8088"
+    volumes:
+      - splunk_data:/opt/splunk/var
+    networks:
+      - splunk_network
+
+networks:
+  splunk_network:
+    driver: bridge
+
+volumes:
+  splunk_data:
